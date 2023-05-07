@@ -4,13 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fb759ca371.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
-    <form action="javascript:void(0)">
-        <input type="text" name="location" id="location" placeholder = "City name...">
-        <input type="submit" value="Search">
-    </form>
+    <div class="content">
+        <div class="left-main-section">
+            <form action="javascript:void(0)">
+                <input type="text" name="location" id="location" placeholder = "Search City..." autocomplete = "off">    
+                <label for="name" class="form__label">Search City</label>
+            </form>
+            <div class = "week-weather">
+                <div class = "week-weather-title">
+                    Cairo, Egypt
+                </div>
+                <div class="week-weather-grid">
+                    <div class="grid-item day">Sunday</div>
+                    <div class="grid-item">
+                        <img src="../src/weather/humidity.png" style = "height:auto; max-width: 10%;" alt="">
+                        54%
+                    </div>
+                    <div class="grid-item">
+                        <img src="../src/weather/wind.png" style = "height:auto; max-width: 18%;" alt="">
+                        20km/h
+                    </div>
+                    <div class="grid-item">
+                        <img src="../src/weather/day/113.png" alt="">
+                    </div>
+                    <div class="grid-item">17 &#8451</div>
+                    <div class="grid-item">30&#8451</div>
+                    <div class="grid-item">24&#8451</div>
+                    <div class="grid-item day">Monday</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-main-section">
+
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

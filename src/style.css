@@ -46,39 +46,84 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.content{
+	width:100%;
+	height:100vh;
+	font-family: 'Roboto', sans-serif;
+}
 
-form {
-	display: flex;
-	align-items: center;
+.content > div:nth-Child(1){
+	background-color:rgb(185, 210, 232);
+	width:60%;
+	height:100vh;
+	padding:60px 50px 60px 50px;
+}
+
+input[type=text] {
+	background-color: white;
+	background-image: url('search.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding-left: 45px;
+  }
+
+  input {
+	color: #333;
+	font-size: 1.2rem;
+	  margin: 0 auto;
+	padding: 0.65rem 1.5rem;
+	border-radius: 0.2rem;
+	background-color: rgb(255, 255, 255);
+	border: none;
+	width: 30%;
+	border-bottom: 0.3rem solid transparent;
+	transition: all 0.3s;
+  }
+  
+  input:placeholder-shown + .form__label {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transform: translateY(-4rem);
+	transform: translateY(-4rem);
+  }
+
+  label{
+	font-size: 1.2rem;
+	margin-left: 2rem;
+	margin-top: 0.7rem;
+	display: block;
+	transition: all 0.3s;
+	transform: translateY(0rem);
+  }
+
+  .week-weather-title{
+	width:100%;
+	display:flex;
 	justify-content:center;
+	font-size: 32px;
+	font-weight: bold;
+  }
+  .week-weather-grid{
 	margin-top: 50px;
+	width:100%;
+	height:500px;
+	display:grid;
+	row-gap:25px;
+	column-gap:10px;
+	grid-template-columns: repeat(7,1fr);
+  	grid-template-rows: repeat(7,1fr);
   }
-  
-  input[type="text"] {
-	padding: 10px;
-	font-size: 18px;
-	border: none;
-	border-bottom: 2px solid #ccc;
-	outline: none;
-	width: 300px;
-	margin-bottom: 20px;
+
+
+  .grid-item{
+	font-size: 24px;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	color:rgb(80, 77, 77);
+	opacity:0.75;
   }
-  
-  input[type="text"]:focus {
-	border-bottom: 2px solid #6CB5FF;
+
+  .day{
+	
   }
-  
-  input[type="submit"] {
-	margin-left:20px;
-	padding: 10px 20px;
-	background-color: #6CB5FF;
-	color: white;
-	font-size: 18px;
-	border: none;
-	cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-	background-color: #4C8FFF;
-  }
-  
