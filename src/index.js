@@ -1,12 +1,16 @@
 import './style.css';
+import {displayData, getInput} from './data'
 
-function getInput(){
-    return document.querySelector("#location").value;
-}
 
-const testDiv = document.querySelector("#testDiv");
 
-document.querySelector("input").addEventListener("input", () =>{
+const weatherInfo = document.querySelector(".weather-info");
+const waiting = document.querySelector("#waiting");
+const errorBox = document.querySelector("section");
+
+document.querySelector("form").addEventListener("submit", () =>{
+    errorBox.classList.add("hidden");
+    weatherInfo.classList.add("hidden");
+    waiting.classList.remove("hidden");
     fetch("https://api.weatherapi.com/v1/forecast.json?key=af8ac87f3a69412f9cb153535230705&q="+getInput()+"&days=7")
     .then((resp) => {
         if(resp.ok){
@@ -14,8 +18,16 @@ document.querySelector("input").addEventListener("input", () =>{
         }
             throw new Error("No such location exists!");
     })
-    .then((resp) => console.log(resp))
+    .then((resp) => {
+        errorBox.classList.add("hidden");
+        weatherInfo.classList.remove("hidden");
+        waiting.classList.add("hidden");
+        displayData(resp);
+    })
     .catch((error) =>{
-        testDiv.textContent = "NO SUCH LOCATION!";
+        waiting.classList.add("hidden");
+        errorBox.classList.remove("hidden");
+        weatherInfo.classList.add("hidden");
+        
     })
 });
