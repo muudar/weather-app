@@ -140,7 +140,7 @@ input[type=text] {
 	flex-direction:column;
 	border-radius:8px;
 	width: 750px;
-	height: 450px;
+	height: 550px;
 }
 
 #weather-location{
@@ -326,4 +326,46 @@ section{
   }
 .icon{
     background-color:#E44B5E;
+  }
+
+  .weather-specific{
+	display:flex;
+	justify-content:space-around;
+	flex-wrap:wrap;
+	align-self:center;
+	width:90%;
+	height: 300px;
+	border: 2px solid var(--light-coral-red);
+	border-radius:8px;
+  }
+
+  .weather-specific > div{
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	align-items:center;
+	height: calc(calc(100% - 4px) / 2);
+	width: calc(calc(100%  - 4px)/ 3);
+  }
+
+  .weather-specific div > i{
+	margin-bottom:10px;
+	font-size: 24px;
+  }
+
+  .weather-specific > div:nth-child(-n+3){
+	border-bottom:2px solid var(--light-coral-red);
+  }
+  .weather-specific > div:nth-child(1), .weather-specific > div:nth-child(2), .weather-specific > div:nth-child(4), .weather-specific > div:nth-child(5) {
+	border-right:2px solid var(--light-coral-red)
+  }
+
+  .weather-specific > div > div > div{
+	margin-top:8px;
+	text-align:center;
+	font-weight:bold;
+  }
+
+  .weather-specific > div > div{
+	text-align:center;
   }
