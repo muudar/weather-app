@@ -5,6 +5,9 @@ function getCurrentTemperature(data){
         current_c:data.current.temp_c,
         maxtemp_c:forecast[0].day.maxtemp_c,
         mintemp_c:forecast[0].day.mintemp_c,
+        current_f:data.current.temp_f,
+        maxtemp_f:forecast[0].day.maxtemp_f,
+        mintemp_f:forecast[0].day.mintemp_f,
     }
 }
 
@@ -14,8 +17,11 @@ const conditionDiv = document.querySelector("#condition");
 const maxTemp = document.querySelector("#max-temp");
 const minTemp = document.querySelector("#min-temp");
 
-function tempChar(){
-    return "\u00B0C";
+function tempChar(cel){
+    if(cel)
+        return "\u00B0C";
+    else
+        return "\u00B0F";
 }
 
 function getLocationName(data){
@@ -27,12 +33,23 @@ function getInput(){
 }
 
 
-function displayData(data){
+function displayData(data, cel){
+    let curr,maxtemp,mintemp = "";
+    if(cel){
+         curr = "current_c";
+         maxtemp =  "maxtemp_c";
+         mintemp = "mintemp_c";
+    }
+    else{
+         curr = "current_f";
+         maxtemp =  "maxtemp_f";
+         mintemp = "mintemp_f";
+    }
     locationDiv.textContent = getLocationName(data);
     let weather = getCurrentTemperature(data);
-    tempDiv.textContent = weather.current_c + tempChar();
+    tempDiv.textContent = weather[curr] + tempChar(cel);
     conditionDiv.textContent = weather.condition;
-    maxTemp.textContent = "Max temp: " + weather.maxtemp_c + tempChar();
-    minTemp.textContent = "Min temp: " + weather.mintemp_c + tempChar();
+    maxTemp.textContent = "Max temp: " + weather[maxtemp] + tempChar(cel);
+    minTemp.textContent = "Min temp: " + weather[mintemp] + tempChar(cel);
 }
 export {displayData, getInput}

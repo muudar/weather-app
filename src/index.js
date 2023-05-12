@@ -1,11 +1,22 @@
 import './style.css';
 import {displayData, getInput} from './data'
 
-
+let cel = true;
+let lastLoc = "";
 
 const weatherInfo = document.querySelector(".weather-info");
 const waiting = document.querySelector("#waiting");
 const errorBox = document.querySelector("section");
+const switchButton = document.querySelector("#switch");
+switchButton.addEventListener("click", () => {
+    cel = !cel;
+    switchButton.children[0].classList.toggle("active");
+    switchButton.children[1].classList.toggle("active");
+    if(lastLoc){
+        displayData(lastLoc,cel);
+    }
+})
+
 
 document.querySelector("form").addEventListener("submit", () =>{
     errorBox.classList.add("hidden");
@@ -22,7 +33,8 @@ document.querySelector("form").addEventListener("submit", () =>{
         errorBox.classList.add("hidden");
         weatherInfo.classList.remove("hidden");
         waiting.classList.add("hidden");
-        displayData(resp);
+        displayData(resp, cel);
+        lastLoc = resp;
     })
     .catch((error) =>{
         waiting.classList.add("hidden");
