@@ -8,6 +8,7 @@ function getCurrentTemperature(data){
         current_f:data.current.temp_f,
         maxtemp_f:forecast[0].day.maxtemp_f,
         mintemp_f:forecast[0].day.mintemp_f,
+        localtime:data.location.localtime,
     }
 }
 
@@ -16,6 +17,7 @@ const tempDiv = document.querySelector("#weather-temp-cf");
 const conditionDiv = document.querySelector("#condition");
 const maxTemp = document.querySelector("#max-temp");
 const minTemp = document.querySelector("#min-temp");
+const localTime = document.querySelector("#local-time");
 
 function tempChar(cel){
     if(cel)
@@ -51,5 +53,6 @@ function displayData(data, cel){
     conditionDiv.textContent = weather.condition;
     maxTemp.textContent = "Max temp: " + weather[maxtemp] + tempChar(cel);
     minTemp.textContent = "Min temp: " + weather[mintemp] + tempChar(cel);
+    localTime.textContent = weather.localtime;
 }
 export {displayData, getInput}

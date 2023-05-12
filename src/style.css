@@ -85,7 +85,9 @@ body{
 .celsius{
 	border-right: 2px solid var(--deep-blue);
 }
-
+#local-time{
+	align-self:center;
+}
 .active, input[type = "submit"]:hover{
 	background-color:var(--light-coral-red);
 	font-weight:bold;
