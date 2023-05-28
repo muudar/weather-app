@@ -88,7 +88,7 @@ body{
 #local-time{
 	align-self:center;
 }
-.active, input[type = "submit"]:hover{
+.active{
 	background-color:var(--light-coral-red);
 	font-weight:bold;
 	font-size: 22px;
